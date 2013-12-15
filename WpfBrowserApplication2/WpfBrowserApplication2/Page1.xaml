@@ -1,0 +1,193 @@
+﻿<Page x:Class="WpfBrowserApplication2.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600"
+      Title="Page1">
+    <Page.Resources>
+        <DataTemplate x:Key="CellTemplate">
+            <TextBlock Background="{Binding Back}" Text="{Binding Value}" TextAlignment="Center"  Foreground="White"/>
+        </DataTemplate>
+
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="Black">
+                <TextBlock Text="设置" Foreground="White" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="UIFilePick" Background="LightSkyBlue" BorderThickness="0" Content="打开文件" FontSize="17" Click="UIFilePick_Click" />
+                <Button x:Name="UIRandom" Background="LightGreen" BorderThickness="0" Content="随机数据" FontSize="17" Grid.Column="1" Click="UIRandom_Click" />
+            </Grid>
+            <Grid Background="#6680FF00" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="随机行值" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="随机列值" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
+                <ComboBox x:Name="UIRandomH" BorderThickness="0" Grid.Column="1" FontSize="15" VerticalAlignment="Bottom" SelectionChanged="UITime_SelectionChanged" Margin="0,0,0,2" SelectedIndex="3">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                </ComboBox>
+                <ComboBox x:Name="UIRandomV" BorderThickness="0" Grid.Column="1" FontSize="15" VerticalAlignment="Bottom" SelectionChanged="UITime_SelectionChanged" Margin="0,0,0,2" Grid.Row="1" SelectedIndex="3">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Column="3" Background="LightGreen">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="播放间隔" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                <ComboBox x:Name="UITime" BorderThickness="0" Grid.Column="1" FontSize="15" VerticalAlignment="Bottom" SelectionChanged="UITime_SelectionChanged" Margin="0,0,0,2" SelectedIndex="3">
+                    <ComboBoxItem Content="最小值"/>
+                    <ComboBoxItem Content="0.1s"/>
+                    <ComboBoxItem Content="0.5s"/>
+                    <ComboBoxItem Content="1s"/>
+                    <ComboBoxItem Content="2s"/>
+                    <ComboBoxItem Content="3s"/>
+                    <ComboBoxItem Content="5s"/>
+                    <ComboBoxItem Content="10s"/>
+                </ComboBox>
+                <TextBlock Text="结果类型" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Grid.Row="1" />
+                <ComboBox BorderThickness="0" Foreground="SaddleBrown" x:Name="UIType" Grid.Column="1" Grid.Row="1" FontSize="15" VerticalAlignment="Center" SelectionChanged="UIType_SelectionChanged" SelectedIndex="0">
+                    <ComboBoxItem Content="矩阵"/>
+                    <ComboBoxItem Content="任意形状"/>
+                </ComboBox>
+            </Grid>
+ 
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="UICurrentData" Background="Transparent" BorderThickness="0" Content="MaxsumTestData (8)" FontSize="14" Click="UICurrentData_Click" />
+                <Grid Background="Salmon" Grid.Column="1">
+                    <TextBlock Text="最近打开的文件" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" />
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="UIRecentlyFile1" BorderThickness="0" Background="#FFEFE4B0" Content="1" Click="UIRecentlyFile1_Click" />
+                    <Button x:Name="UIRecentlyFile2" BorderThickness="0" Background="#FFC8BFE7" Content="2" Grid.Column="1" Click="UIRecentlyFile2_Click" />
+                    <Button x:Name="UIRecentlyFile3" BorderThickness="0" Background="#4C2DDE45" Content="3" Grid.Column="2" Click="UIRecentlyFile3_Click" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="140"/>
+                </Grid.ColumnDefinitions>
+                <Grid  x:Name="UIMainGrid">
+                    <DataGrid x:Name="dataGrid" ItemsSource="{Binding CollectionSource}" SelectionUnit="CellOrRowHeader" IsReadOnly="True"  MaxColumnWidth="100" MinColumnWidth="100" AutoGenerateColumns="True" CanUserResizeRows="False" CanUserSortColumns="False"  CanUserReorderColumns="False"  LoadingRow="dataGrid_LoadingRow" HorizontalAlignment="Center" VerticalAlignment="Center" AutoGeneratedColumns="dataGrid_AutoGeneratedColumns" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn" Margin="0,0,0,30" FontSize="20" FontFamily="Segoe UI">
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="Background" Value="AliceBlue" />
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="FontSize" Value="20" />
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+
+                    </DataGrid>
+
+                </Grid>
+                <Grid Background="#7F80FFFF"  Grid.Column="1" Margin="0,0,0,0">
+                    <StackPanel Grid.Row="1" Margin="0,0,0,0" >
+                        <TextBlock Background="Black" Foreground="White" Text="当前状态" FontSize="15" TextAlignment="Center" Margin="0" />
+                        <TextBlock Text="最大值" Background="Gold" VerticalAlignment="Top" FontSize="15" TextAlignment="Center" Margin="0,30,0,0" />
+                        <TextBlock x:Name="UImaxsum" Background="Gold" Text="0" VerticalAlignment="Top" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+                        <TextBlock Text="当前值" Background="LightSkyBlue" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+                        <TextBlock x:Name="UIsum" Background="LightSkyBlue" Text="0" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+
+                        <TextBlock Background="Black" Foreground="White" Text="说明" FontSize="15" TextAlignment="Center" Margin="0,30,0,0" />
+                        <TextBlock Background="LightSkyBlue" Text="当前选定项" FontSize="15" TextAlignment="Center" Margin="0,30,0,0" />
+                        <TextBlock Background="Gold" Text="(当前)最大值" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+                        <TextBlock Background="LightGreen" Text="可行解(任意)" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+                        <TextBlock Background="LightGreen" Text="可拓展(矩阵)" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+                        <TextBlock Background="Salmon" Text="不选(矩阵)" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+                        <TextBlock Background="Salmon" Text="无法连通(任意)" FontSize="15" TextAlignment="Center" Margin="0,10,0,0" />
+
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="Black">
+                <Button x:Name="UIReset" Content="重置" BorderThickness="0" Background="Transparent" Foreground="White" FontSize="15" FontWeight="Bold" Click="UIReset_Click"/>
+            </Grid>
+            <Button x:Name="UIPre" BorderThickness="0" Background="LightSkyBlue" Content="上一步" Margin="0" Height="100" VerticalAlignment="Bottom" Click="UIPre_Click" FontSize="17" Grid.Column="1"/>
+            <Button x:Name="UINext" BorderThickness="0" Background="LightSkyBlue" Content="下一步" Margin="0" Height="100" VerticalAlignment="Bottom" Click="UINext_Click" Grid.Column="3" FontSize="17"/>
+            <Button x:Name="UIBegin" BorderThickness="0" Background="LightGreen" Content="自动播放" Margin="0" Height="100" VerticalAlignment="Bottom" Grid.Column="2" FontSize="17" Click="UIBegin_Click"/>
+
+        </Grid>
+        <Grid Visibility="Collapsed">
+            <Grid x:Name="UIcolor_white" Background="White" />
+            <Grid x:Name="UIcolor1" Background="#FFEFE4B0" />
+            <Grid x:Name="UIcolor2" Background="#FFC8BFE7" />
+            <Grid x:Name="UIcolor3" Background="#4C2DDE45" />
+        </Grid>
+    </Grid>
+</Page>
